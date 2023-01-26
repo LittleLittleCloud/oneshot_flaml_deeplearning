@@ -15,7 +15,8 @@ class Model(nn.Module):
         self.res_net_50.fc = nn.Sequential(
             nn.Linear(2048, 128),
             nn.ReLU(inplace=True),
-            nn.Linear(128, num_of_class)
+            nn.Linear(128, num_of_class),
+            nn.Softmax(dim=1),
         )
 
         self.res_net_50.to(device)

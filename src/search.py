@@ -26,6 +26,6 @@ config_search_space = {
 
 if __name__ == '__main__':
     device = torch.device("cpu")
-    dataset, _, num_of_classes = load_caltech101()
+    dataset, dataset_name, num_of_classes = load_caltech101()
     evaluate_config = run_and_evaluate(dataset, device, 1, num_of_classes)
-    flaml.tune.run(evaluate_config, config_search_space)
+    flaml.tune.run(evaluate_config, config_search_space, log_file_name=dataset_name)
