@@ -10,15 +10,15 @@ import numpy as np
 def train_and_evaluate_model(
     train_dataset,
     validate_dataset,
-    batch_size: int,
-    learning_rate: float,
-    graident: float,
-    square: float,
-    eps: float,
-    weight_decay:float,
     num_classes: int,
     num_epochs: int,
-    device: torch.device):
+    device: torch.device,
+    batch_size = 128,
+    learning_rate = 1e-3,
+    graident = 0.9,
+    square = 0.99,
+    eps = 1e-8,
+    weight_decay = 0):
     model = Model(num_of_class=num_classes, device=device)
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, betas=(graident, square), eps=eps, weight_decay=weight_decay)
     cross_entropy = torch.nn.CrossEntropyLoss()

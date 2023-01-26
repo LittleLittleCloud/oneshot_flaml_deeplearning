@@ -37,7 +37,7 @@ def search_config(dataset, name, num_class, subsample = 500, trail_attempt = 30,
     evaluate_config = run_and_evaluate(train, validate, device, epoch, num_class)
     # run default
     print('run default')
-    automl_default = flaml.tune.run(evaluate_config, config_search_space, log_file_name=name, num_samples = 1, verbose=3, mode='max', metric='acc')
+    automl_default = flaml.tune.run(evaluate_config, {}, log_file_name=name, num_samples = 1, verbose=3, mode='max', metric='acc')
     print('run tune')
     automl = flaml.tune.run(evaluate_config, config_search_space, log_file_name=name, num_samples = trail_attempt, verbose=3, mode='max', metric='acc')
     
