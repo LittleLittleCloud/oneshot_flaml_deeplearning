@@ -6,17 +6,17 @@ import numpy as np
 class Model(nn.Module):
     def __init__(self, num_of_class: int, device: torch.device):
         super(Model, self).__init__()
-        self.res_net_50 = models.resnet50(pretrained=True)
+        self.res_net_50 = models.resnet18(pretrained=True)
 
         # freeze res_net_50
         for param in self.res_net_50.parameters():
             param.requires_grad = False
         
         self.res_net_50.fc = nn.Sequential(
-            nn.Linear(2048, 128),
+            nn.Linear(512, 128),
             nn.ReLU(inplace=True),
             nn.Linear(128, num_of_class),
-            nn.Softmax(dim=1),
+            nn.Softmax(dim=0),
         )
 
         self.res_net_50 = self.res_net_50.to(device)

@@ -1,17 +1,16 @@
 from src.dataset import *
 from src.search import *
 import torch
-from torch.utils.data import DataLoader, random_split
-
+from torch.utils.data import DataLoader, Subset, RandomSampler, SubsetRandomSampler
+import json
 if __name__ == '__main__':
     device = torch.device('cuda:0')
     rnd = torch.random.manual_seed(0)
-    datasets_loaders = [load_caltech101, load_caltech201, load_cifar10, load_cifar100]
+    datasets_loaders = [load_EMNIST, load_DTD, load_country211, load_celebA]
 
     for loader in datasets_loaders:
-        dataset, name, num_class = loader()
-        print(f'search portfolio for {name}')
-        train, validate = random_split(dataset, [0.9, 0.1], rnd)
-        evaluate_config = run_and_evaluate(train, validate, device, 10, num_class)
-        flaml.tune.run(evaluate_config, config_search_space, log_file_name=name)
-
+        try:
+            dataset, name, num_class = loader()
+            search_config(dataset, name, num_class=num_class, subsample=1000, device=torch.device('cuda:0'), trail_attempt=10)
+        except Exception as ex:
+            print(ex)

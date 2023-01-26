@@ -28,6 +28,7 @@ def train_and_evaluate_model(
         model.train()
         train_data_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
         running_loss = 0.0
+        running_corrects = 0
         batch = 0
         for inputs, labels in train_data_loader:
             inputs = inputs.to(device)
@@ -41,12 +42,15 @@ def train_and_evaluate_model(
 
             _, preds = torch.max(outputs, 1)
             running_loss += loss.item() * inputs.size(0)
-            print(f'batch {batch}')
+            correctness = torch.sum(preds == labels.data)
+            print(f'batch {batch} loss {loss.item()} correctness {correctness * 1.0 / inputs.size(0)}')
+            running_corrects += correctness
             batch += 1
         epoch_loss = running_loss / len(train_data_loader)
-
-        print('train - epoch: {} loss: {:.4f}'.format(epoch,
-                                                        epoch_loss))
+        epoch_correctness = running_corrects * 1.0 / len(train_data_loader)
+        print('train - epoch: {} loss: {:.4f} correctness: {}'.format(epoch,
+                                                        epoch_loss,
+                                                        epoch_correctness))
 
     preds = []
     labels = []
@@ -58,13 +62,15 @@ def train_and_evaluate_model(
         inputs = inputs.to(device)
         output = model.forward(inputs)
         preds.append(output)
-    preds = torch.vstack(preds).detach().numpy()
-    labels = torch.hstack(labels).detach().numpy()
+    preds = torch.vstack(preds)
+    _, preds = torch.max(preds, 1)
+    preds = preds.detach().cpu().numpy()
+    labels = torch.hstack(labels).detach().cpu().numpy()
     print(preds.shape)
     print(labels.shape)
-    auroc = accuracy_score(labels, np.argmax(preds, axis=1))
+    metric = accuracy_score(labels, preds)
     
-    return auroc
+    return metric
 
 
 if __name__ == '__main__':
