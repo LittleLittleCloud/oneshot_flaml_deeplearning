@@ -19,7 +19,7 @@ class Model(nn.Module):
             nn.Softmax(dim=1),
         )
 
-        self.res_net_50.to(device)
+        self.res_net_50 = self.res_net_50.to(device)
 
     def forward(self, X):
         return self.res_net_50.forward(X)

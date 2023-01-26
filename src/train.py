@@ -1,5 +1,5 @@
-from model import Model
-from dataset import *
+from src.model import Model
+from src.dataset import *
 from torchvision import datasets
 import torch
 from torch.utils.data import DataLoader, random_split

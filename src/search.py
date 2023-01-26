@@ -1,22 +1,20 @@
 import flaml
 import flaml.tune
 from torch.utils.data import DataLoader, random_split
-from train import train_and_evaluate_model
+from src.train import train_and_evaluate_model
 from flaml import tune
-from dataset import load_caltech101
+from src.dataset import load_caltech101
 import torch
 
-def run_and_evaluate(dataset, device, num_epochs, num_classes):
-    train, validate = random_split(dataset, [0.7, 0.3])
+def run_and_evaluate(train, validate, device, num_epochs, num_classes):
     def evaluate_config(config:dict):
-        print(config)
         auroc = train_and_evaluate_model(train, validate, num_classes=num_classes, num_epochs=num_epochs, device=device, **config)
         return auroc
     
     return evaluate_config
 
 config_search_space = {
-    "batch_size": tune.lograndint(lower = 32, upper = 1024),
+    "batch_size": tune.lograndint(lower = 2, upper = 32),
     "learning_rate": tune.loguniform(lower = 1e-5, upper = 1),
     "graident": tune.loguniform(lower = 1e-3, upper = 1),
     "square": tune.loguniform(lower = 1e-3, upper = 1),

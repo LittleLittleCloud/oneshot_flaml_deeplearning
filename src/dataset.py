@@ -1,9 +1,9 @@
-import tensorflow_datasets as tfds
 from torch.utils.data import DataLoader, random_split
 from torchvision import transforms
 import torchvision
 from torchvision import datasets
 import numpy as np
+from torch.utils.data import DataLoader, random_split
 
 # normalize data
 normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
