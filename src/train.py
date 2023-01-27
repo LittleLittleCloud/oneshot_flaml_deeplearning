@@ -13,7 +13,7 @@ def train_and_evaluate_model(
     num_classes: int,
     num_epochs: int,
     device: torch.device,
-    batch_size = 128,
+    batch_size = 128 * 5,
     learning_rate = 1e-3,
     graident = 0.9,
     square = 0.99,

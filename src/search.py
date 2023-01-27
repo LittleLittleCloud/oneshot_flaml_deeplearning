@@ -8,6 +8,7 @@ import torch
 import time
 from src.dataset import *
 import json
+import os
 
 def run_and_evaluate(train, validate, device, num_epochs, num_classes):
     def evaluate_config(config:dict):
@@ -19,7 +20,7 @@ def run_and_evaluate(train, validate, device, num_epochs, num_classes):
     return evaluate_config
 
 config_search_space = {
-    "batch_size": tune.lograndint(lower = 128 * 5, upper = 128 * 10),
+    "batch_size": tune.lograndint(lower = 128, upper = 128 * 5),
     "learning_rate": tune.loguniform(lower = 1e-5, upper = 1),
     "graident": tune.loguniform(lower = 1e-3, upper = 0.9999),
     "square": tune.loguniform(lower = 1e-3, upper = 0.9999),
@@ -27,7 +28,17 @@ config_search_space = {
     "weight_decay": tune.loguniform(lower = 1e-9, upper = 1e-2),
 }
 
+TRIAL_ATTEMPT = 30
+SUB_SAMPLE = 500
+EPOCH = 5
+SEED = 0
+
 def search_config(dataset, name, num_class, subsample = 500, trail_attempt = 30, epoch = 5, seed = 0, device = torch.device('cpu')):
+    config_json_path = f'/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/dnn/{name}.json'
+    if os.path.exists(config_json_path):
+        print(f'{config_json_path} already exist')
+        return
+
     print(f'search portfolio for {name} dataset len: {len(dataset)}')
     rnd = torch.random.manual_seed(seed)
     indices = [i for i in range(len(dataset))]
@@ -38,14 +49,15 @@ def search_config(dataset, name, num_class, subsample = 500, trail_attempt = 30,
     # run default
     print('run default')
     automl_default = flaml.tune.run(evaluate_config, {}, log_file_name=name, num_samples = 1, verbose=3, mode='max', metric='acc')
+    print(automl_default.best_result)
     print('run tune')
     automl = flaml.tune.run(evaluate_config, config_search_space, log_file_name=name, num_samples = trail_attempt, verbose=3, mode='max', metric='acc')
     
-    if automl_default.best_result > automl.best_result:
+    if automl_default.best_result['acc'] > automl.best_result['acc']:
         best_config = automl_default.best_config
     else:
         best_config = automl.best_config
-    with open(f'/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/dnn/{name}.json', 'w') as fs:
+    with open(config_json_path, 'w') as fs:
         json.dump(best_config, fs)
 
 if __name__ == '__main__':

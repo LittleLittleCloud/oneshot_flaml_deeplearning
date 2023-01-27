@@ -1,4 +1,5 @@
 data/
 py38/
 *.pyc
-default/
+
+*.amlignore
