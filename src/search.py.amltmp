@@ -32,45 +32,18 @@ TRIAL_ATTEMPT = 30
 SUB_SAMPLE = 500
 EPOCH = 5
 SEED = 0
-CONFIG_JSON_FOLDER = '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/dnn'
-def evaluate_config(dataset,
-                num_class,
-                config,
-                subsample = SUB_SAMPLE,
-                epoch = EPOCH,
-                seed = SEED,
-                device = torch.device('cpu')):
-    rnd = torch.random.manual_seed(seed)
-    indices = [i for i in range(len(dataset))]
-    indices = [i for i in RandomSampler(indices, num_samples=subsample, generator=rnd)]
-    dataset = Subset(dataset, indices)
-    train, validate = random_split(dataset, [0.7, 0.3], rnd)
-    metric = train_and_evaluate_model(train, validate, num_classes=num_class, num_epochs=epoch, device=device, **config)
-    
-    return metric
 
-
-def search_config(
-        dataset,
-        name,
-        num_class,
-        subsample = 500,
-        trail_attempt = TRIAL_ATTEMPT,
-        epoch = EPOCH,
-        seed = SEED,
-        config_json_folder = CONFIG_JSON_FOLDER,
-        device = torch.device('cpu')):
-    config_json_path = f'{config_json_folder}/{name}.json'
+def search_config(dataset, name, num_class, subsample = 500, trail_attempt = 30, epoch = 5, seed = 0, device = torch.device('cpu')):
+    config_json_path = f'/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/dnn/{name}.json'
     if os.path.exists(config_json_path):
         print(f'{config_json_path} already exist')
         return
 
     print(f'search portfolio for {name} dataset len: {len(dataset)}')
     rnd = torch.random.manual_seed(seed)
-    if subsample != -1:
-        indices = [i for i in range(len(dataset))]
-        indices = [i for i in RandomSampler(indices, num_samples=subsample, generator=rnd)]
-        dataset = Subset(dataset, indices)
+    indices = [i for i in range(len(dataset))]
+    indices = [i for i in RandomSampler(indices, num_samples=subsample, generator=rnd)]
+    dataset = Subset(dataset, indices)
     train, validate = random_split(dataset, [0.7, 0.3], rnd)
     evaluate_config = run_and_evaluate(train, validate, device, epoch, num_class)
     # run default

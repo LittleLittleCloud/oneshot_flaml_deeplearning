@@ -1,0 +1,154 @@
+{
+    "caltech101.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.006666666666666667,
+        "params": {
+            "_modeljson": "caltech101.json"
+        }
+    },
+    "caltech256.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.013333333333333334,
+        "params": {
+            "_modeljson": "caltech256.json"
+        }
+    },
+    "cifar10.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.013333333333333334,
+        "params": {
+            "_modeljson": "cifar10.json"
+        }
+    },
+    "cifar100.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.02,
+        "params": {
+            "_modeljson": "cifar100.json"
+        }
+    },
+    "country211.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.013333333333333334,
+        "params": {
+            "_modeljson": "country211.json"
+        }
+    },
+    "DTD.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.013333333333333334,
+        "params": {
+            "_modeljson": "DTD.json"
+        }
+    },
+    "EMNIST.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.013333333333333334,
+        "params": {
+            "_modeljson": "EMNIST.json"
+        }
+    },
+    "FashionMNIST.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.02,
+        "params": {
+            "_modeljson": "FashionMNIST.json"
+        }
+    },
+    "FGVCAircraft.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.006666666666666667,
+        "params": {
+            "_modeljson": "FGVCAircraft.json"
+        }
+    },
+    "Flowers102.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.013333333333333334,
+        "params": {
+            "_modeljson": "Flowers102.json"
+        }
+    },
+    "Food101.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.013333333333333334,
+        "params": {
+            "_modeljson": "Food101.json"
+        }
+    },
+    "GTSRB.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.02,
+        "params": {
+            "_modeljson": "GTSRB.json"
+        }
+    },
+    "KMNIST.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.006666666666666667,
+        "params": {
+            "_modeljson": "KMNIST.json"
+        }
+    },
+    "LFWPeople.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.006666666666666667,
+        "params": {
+            "_modeljson": "LFWPeople.json"
+        }
+    },
+    "Omniglot.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.013333333333333334,
+        "params": {
+            "_modeljson": "Omniglot.json"
+        }
+    },
+    "OxfordIIITPet.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.013333333333333334,
+        "params": {
+            "_modeljson": "OxfordIIITPet.json"
+        }
+    },
+    "PCAM.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.013333333333333334,
+        "params": {
+            "_modeljson": "PCAM.json"
+        }
+    },
+    "QMNIST.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.0,
+        "params": {
+            "_modeljson": "QMNIST.json"
+        }
+    },
+    "default.json": {
+        "task": "country211",
+        "type": "classification",
+        "result": 0.013333333333333334,
+        "params": {
+            "_modeljson": "default.json"
+        }
+    }
+}
