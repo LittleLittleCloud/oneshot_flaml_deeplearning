@@ -41,9 +41,10 @@ def evaluate_config(dataset,
                 seed = SEED,
                 device = torch.device('cpu')):
     rnd = torch.random.manual_seed(seed)
-    indices = [i for i in range(len(dataset))]
-    indices = [i for i in RandomSampler(indices, num_samples=subsample, generator=rnd)]
-    dataset = Subset(dataset, indices)
+    if subsample != -1:
+        indices = [i for i in range(len(dataset))]
+        indices = [i for i in RandomSampler(indices, num_samples=subsample, generator=rnd)]
+        dataset = Subset(dataset, indices)
     train, validate = random_split(dataset, [0.7, 0.3], rnd)
     metric = train_and_evaluate_model(train, validate, num_classes=num_class, num_epochs=epoch, device=device, **config)
     
@@ -86,6 +87,8 @@ def search_config(
         best_config = automl.best_config
     with open(config_json_path, 'w') as fs:
         json.dump(best_config, fs)
+    
+    return {'default_score': automl_default.best_result, 'flaml_score': automl.best_result, 'flaml_config': automl.best_config}
 
 if __name__ == '__main__':
     device = torch.device("cuda:0")

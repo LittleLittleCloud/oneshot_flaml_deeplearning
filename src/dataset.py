@@ -186,7 +186,7 @@ def load_RenderedSST2(transform = rgb_transform):
 #3
 def load_SEMEION(transform = grayscale_transform):
     dataset = datasets.SEMEION("data", download=True, transform=transform)
-    return dataset, "SEMEION", len(dataset.labels)
+    return dataset, "SEMEION", len(np.unique(dataset.labels))
 
 #3
 def load_StanfordCars(transform = rgb_transform):

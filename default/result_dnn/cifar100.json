@@ -1,1 +1,154 @@
-{"caltech101.json": {"task": "cifar100", "type": "classification", "result": 0.16, "params": {"_modeljson": "caltech101.json"}}, "caltech256.json": {"task": "cifar100", "type": "classification", "result": 0.19333333333333333, "params": {"_modeljson": "caltech256.json"}}, "cifar10.json": {"task": "cifar100", "type": "classification", "result": 0.07333333333333333, "params": {"_modeljson": "cifar10.json"}}, "cifar100.json": {"task": "cifar100", "type": "classification", "result": 0.20666666666666667, "params": {"_modeljson": "cifar100.json"}}, "country211.json": {"task": "cifar100", "type": "classification", "result": 0.20666666666666667, "params": {"_modeljson": "country211.json"}}, "DTD.json": {"task": "cifar100", "type": "classification", "result": 0.18666666666666668, "params": {"_modeljson": "DTD.json"}}, "EMNIST.json": {"task": "cifar100", "type": "classification", "result": 0.07333333333333333, "params": {"_modeljson": "EMNIST.json"}}, "FashionMNIST.json": {"task": "cifar100", "type": "classification", "result": 0.14, "params": {"_modeljson": "FashionMNIST.json"}}, "FGVCAircraft.json": {"task": "cifar100", "type": "classification", "result": 0.15333333333333332, "params": {"_modeljson": "FGVCAircraft.json"}}, "Flowers102.json": {"task": "cifar100", "type": "classification", "result": 0.20666666666666667, "params": {"_modeljson": "Flowers102.json"}}, "Food101.json": {"task": "cifar100", "type": "classification", "result": 0.20666666666666667, "params": {"_modeljson": "Food101.json"}}, "GTSRB.json": {"task": "cifar100", "type": "classification", "result": 0.16, "params": {"_modeljson": "GTSRB.json"}}, "KMNIST.json": {"task": "cifar100", "type": "classification", "result": 0.16, "params": {"_modeljson": "KMNIST.json"}}, "LFWPeople.json": {"task": "cifar100", "type": "classification", "result": 0.14, "params": {"_modeljson": "LFWPeople.json"}}, "Omniglot.json": {"task": "cifar100", "type": "classification", "result": 0.20666666666666667, "params": {"_modeljson": "Omniglot.json"}}, "OxfordIIITPet.json": {"task": "cifar100", "type": "classification", "result": 0.1, "params": {"_modeljson": "OxfordIIITPet.json"}}, "PCAM.json": {"task": "cifar100", "type": "classification", "result": 0.21333333333333335, "params": {"_modeljson": "PCAM.json"}}, "QMNIST.json": {"task": "cifar100", "type": "classification", "result": 0.02666666666666667, "params": {"_modeljson": "QMNIST.json"}}, "default.json": {"task": "cifar100", "type": "classification", "result": 0.05333333333333334, "params": {"_modeljson": "default.json"}}}
+{
+    "caltech101.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.16,
+        "params": {
+            "_modeljson": "caltech101.json"
+        }
+    },
+    "caltech256.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.19333333333333333,
+        "params": {
+            "_modeljson": "caltech256.json"
+        }
+    },
+    "cifar10.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.07333333333333333,
+        "params": {
+            "_modeljson": "cifar10.json"
+        }
+    },
+    "cifar100.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.20666666666666667,
+        "params": {
+            "_modeljson": "cifar100.json"
+        }
+    },
+    "country211.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.20666666666666667,
+        "params": {
+            "_modeljson": "country211.json"
+        }
+    },
+    "DTD.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.18666666666666668,
+        "params": {
+            "_modeljson": "DTD.json"
+        }
+    },
+    "EMNIST.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.07333333333333333,
+        "params": {
+            "_modeljson": "EMNIST.json"
+        }
+    },
+    "FashionMNIST.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.14,
+        "params": {
+            "_modeljson": "FashionMNIST.json"
+        }
+    },
+    "FGVCAircraft.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.15333333333333332,
+        "params": {
+            "_modeljson": "FGVCAircraft.json"
+        }
+    },
+    "Flowers102.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.20666666666666667,
+        "params": {
+            "_modeljson": "Flowers102.json"
+        }
+    },
+    "Food101.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.20666666666666667,
+        "params": {
+            "_modeljson": "Food101.json"
+        }
+    },
+    "GTSRB.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.16,
+        "params": {
+            "_modeljson": "GTSRB.json"
+        }
+    },
+    "KMNIST.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.16,
+        "params": {
+            "_modeljson": "KMNIST.json"
+        }
+    },
+    "LFWPeople.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.14,
+        "params": {
+            "_modeljson": "LFWPeople.json"
+        }
+    },
+    "Omniglot.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.20666666666666667,
+        "params": {
+            "_modeljson": "Omniglot.json"
+        }
+    },
+    "OxfordIIITPet.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.1,
+        "params": {
+            "_modeljson": "OxfordIIITPet.json"
+        }
+    },
+    "PCAM.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.21333333333333335,
+        "params": {
+            "_modeljson": "PCAM.json"
+        }
+    },
+    "QMNIST.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.02666666666666667,
+        "params": {
+            "_modeljson": "QMNIST.json"
+        }
+    },
+    "default.json": {
+        "task": "cifar100",
+        "type": "classification",
+        "result": 0.05333333333333334,
+        "params": {
+            "_modeljson": "default.json"
+        }
+    }
+}

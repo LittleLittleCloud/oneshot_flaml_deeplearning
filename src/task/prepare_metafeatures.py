@@ -33,6 +33,8 @@ dataset_loaders = [
     load_QMNIST,
 ]
 
+dataset_loaders += DATASET_GROUP_3
+
 SEED = 0
 
 rnd = torch.random.manual_seed(SEED)
