@@ -41,9 +41,10 @@ def evaluate_config(dataset,
                 seed = SEED,
                 device = torch.device('cpu')):
     rnd = torch.random.manual_seed(seed)
-    indices = [i for i in range(len(dataset))]
-    indices = [i for i in RandomSampler(indices, num_samples=subsample, generator=rnd)]
-    dataset = Subset(dataset, indices)
+    if subsample != -1:
+        indices = [i for i in range(len(dataset))]
+        indices = [i for i in RandomSampler(indices, num_samples=subsample, generator=rnd)]
+        dataset = Subset(dataset, indices)
     train, validate = random_split(dataset, [0.7, 0.3], rnd)
     metric = train_and_evaluate_model(train, validate, num_classes=num_class, num_epochs=epoch, device=device, **config)
     
@@ -77,8 +78,11 @@ def search_config(
     print('run default')
     automl_default = flaml.tune.run(evaluate_config, {}, log_file_name=name, num_samples = 1, verbose=3, mode='max', metric='acc')
     print(automl_default.best_result)
-    print('run tune')
-    automl = flaml.tune.run(evaluate_config, config_search_space, log_file_name=name, num_samples = trail_attempt, verbose=3, mode='max', metric='acc')
+    if trail_attempt > 0:
+        print('run tune')
+        automl = flaml.tune.run(evaluate_config, config_search_space, log_file_name=name, num_samples = trail_attempt, verbose=3, mode='max', metric='acc')
+    else:
+        automl = automl_default
     
     if automl_default.best_result['acc'] > automl.best_result['acc']:
         best_config = automl_default.best_config
@@ -86,6 +90,8 @@ def search_config(
         best_config = automl.best_config
     with open(config_json_path, 'w') as fs:
         json.dump(best_config, fs)
+    
+    return {'default_score': automl_default.best_result, 'flaml_score': automl.best_result, 'flaml_config': automl.best_config}
 
 if __name__ == '__main__':
     device = torch.device("cuda:0")

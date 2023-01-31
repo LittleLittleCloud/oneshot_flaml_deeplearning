@@ -1,1 +1,112 @@
-{"caltech101": {"number_of_features": 71732.121, "number_of_classes": 101, "number_of_instances": 8677}, "caltech256": {"number_of_features": 155097.099, "number_of_classes": 257, "number_of_instances": 30607}, "cifar10": {"number_of_features": 1024.0, "number_of_classes": 10, "number_of_instances": 50000}, "DTD": {"number_of_features": 232141.328, "number_of_classes": 47, "number_of_instances": 1880}, "EMNIST": {"number_of_features": 784.0, "number_of_classes": 62, "number_of_instances": 697932}, "cifar100": {"number_of_features": 1024.0, "number_of_classes": 100, "number_of_instances": 50000}, "FGVCAircraft": {"number_of_features": 840750.529, "number_of_classes": 30, "number_of_instances": 3334}, "country211": {"number_of_features": 175649.749, "number_of_classes": 211, "number_of_instances": 31650}, "Food101": {"number_of_features": 235957.76, "number_of_classes": 101, "number_of_instances": 75750}, "FashionMNIST": {"number_of_features": 784.0, "number_of_classes": 10, "number_of_instances": 10000}, "Flowers102": {"number_of_features": 331241.596, "number_of_classes": 102, "number_of_instances": 1020}, "GTSRB": {"number_of_features": 3251.329, "number_of_classes": 43, "number_of_instances": 26640}}
+{
+    "caltech101": {
+        "number_of_features": 71732.121,
+        "number_of_classes": 101,
+        "number_of_instances": 8677
+    },
+    "caltech256": {
+        "number_of_features": 155097.099,
+        "number_of_classes": 257,
+        "number_of_instances": 30607
+    },
+    "cifar10": {
+        "number_of_features": 1024.0,
+        "number_of_classes": 10,
+        "number_of_instances": 50000
+    },
+    "DTD": {
+        "number_of_features": 232141.328,
+        "number_of_classes": 47,
+        "number_of_instances": 1880
+    },
+    "EMNIST": {
+        "number_of_features": 784.0,
+        "number_of_classes": 62,
+        "number_of_instances": 697932
+    },
+    "cifar100": {
+        "number_of_features": 1024.0,
+        "number_of_classes": 100,
+        "number_of_instances": 50000
+    },
+    "FGVCAircraft": {
+        "number_of_features": 840750.529,
+        "number_of_classes": 30,
+        "number_of_instances": 3334
+    },
+    "country211": {
+        "number_of_features": 175649.749,
+        "number_of_classes": 211,
+        "number_of_instances": 31650
+    },
+    "Food101": {
+        "number_of_features": 235957.76,
+        "number_of_classes": 101,
+        "number_of_instances": 75750
+    },
+    "FashionMNIST": {
+        "number_of_features": 784.0,
+        "number_of_classes": 10,
+        "number_of_instances": 10000
+    },
+    "Flowers102": {
+        "number_of_features": 331241.596,
+        "number_of_classes": 102,
+        "number_of_instances": 1020
+    },
+    "GTSRB": {
+        "number_of_features": 3251.329,
+        "number_of_classes": 43,
+        "number_of_instances": 26640
+    },
+    "KMNIST": {
+        "number_of_features": 784.0,
+        "number_of_classes": 10,
+        "number_of_instances": 60000
+    },
+    "LFWPeople": {
+        "number_of_features": 62500.0,
+        "number_of_classes": 5749,
+        "number_of_instances": 13233
+    },
+    "OxfordIIITPet": {
+        "number_of_features": 176401.895,
+        "number_of_classes": 37,
+        "number_of_instances": 3680
+    },
+    "Omniglot": {
+        "number_of_features": 11025.0,
+        "number_of_classes": 964,
+        "number_of_instances": 19280
+    },
+    "QMNIST": {
+        "number_of_features": 784.0,
+        "number_of_classes": 10,
+        "number_of_instances": 60000
+    },
+    "PCAM": {
+        "number_of_features": 9216.0,
+        "number_of_classes": 2,
+        "number_of_instances": 262144
+    },
+    "USPS": {
+        "number_of_features": 256.0,
+        "number_of_classes": 10,
+        "number_of_instances": 7291
+    },
+    "STL10": {
+        "number_of_features": 9216.0,
+        "number_of_classes": 10,
+        "number_of_instances": 5000
+    },
+    "RenderedSST2": {
+        "number_of_features": 200704.0,
+        "number_of_classes": 2,
+        "number_of_instances": 6920
+    },
+    "SEMEION": {
+        "number_of_features": 256.0,
+        "number_of_classes": 10,
+        "number_of_instances": 1593
+    }
+}
