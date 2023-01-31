@@ -32,7 +32,7 @@ TRIAL_ATTEMPT = 30
 SUB_SAMPLE = -1
 EPOCH = 5
 SEED = 0
-CONFIG_JSON_FOLDER = '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/dnn'
+CONFIG_JSON_FOLDER = 'default/dnn'
 def evaluate_config(dataset,
                 num_class,
                 config,

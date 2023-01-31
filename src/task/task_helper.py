@@ -13,11 +13,11 @@ def search_portfolio(dataset_loaders, device):
             print(ex)
 
 def evaluate_portfolio(dataset_loaders, device):
-    config_dir = '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/dnn'
+    config_dir = 'default/dnn'
     configs = os.listdir(config_dir)
     configs = [x for x in filter(lambda path: path.endswith('json'), configs)]
 
-    result_folder = f'/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/'
+    result_folder = f'default/result_dnn/'
     configs.append('default.json')
     print(configs)
 
