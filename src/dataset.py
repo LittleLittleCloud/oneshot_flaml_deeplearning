@@ -100,10 +100,12 @@ def load_celebA(transform = rgb_transform):
     dataset = datasets.CelebA("data", split="all", download=True, transform=transform)
     return dataset, "celebA", len(dataset.attr_names)
 #0
+# v100 xiaoyun
 def load_country211(transform = rgb_transform):
     dataset = datasets.Country211("data", split="train", download=True, transform=transform)
     return dataset, "country211", len(dataset.classes)
 #0
+#k80 chi
 def load_DTD(transform = rgb_transform):
     dataset = datasets.dtd.DTD("data", split="train", download=True, transform=transform)
     return dataset, "DTD", len(dataset.classes)
