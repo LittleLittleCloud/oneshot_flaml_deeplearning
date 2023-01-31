@@ -78,79 +78,19 @@ rgb_transform = transforms.Compose([
         normalize
     ])
 
-# 1
-def load_caltech101(transform = grayscale_transform):
-    dataset = datasets.Caltech101("data", download=True, transform=transform)
-    dataset.name = "caltech101"
-    return dataset, "caltech101", len(dataset.categories)
-#1
-def load_caltech256(transform = grayscale_transform):
-    dataset = datasets.Caltech256("data", download=True, transform=transform)
-    return dataset, "caltech256", len(dataset.categories)
-#1
-def load_cifar10(transform = rgb_transform):
-    dataset = datasets.cifar.CIFAR10("data", train=True, download=True, transform=transform)
-    return dataset, "cifar10", len(dataset.class_to_idx)
-#1
-def load_cifar100(transform = rgb_transform):
-    dataset = datasets.cifar.CIFAR100("data", train=True, download=True, transform=transform)
-    return dataset, "cifar100", len(dataset.class_to_idx)
+
 #0
 def load_celebA(transform = rgb_transform):
     dataset = datasets.CelebA("data", split="all", download=True, transform=transform)
     return dataset, "celebA", len(dataset.attr_names)
+
 #0
-# v100 xiaoyun
-def load_country211(transform = rgb_transform):
-    dataset = datasets.Country211("data", split="train", download=True, transform=transform)
-    return dataset, "country211", len(dataset.classes)
-#0
-#k80 chi
-def load_DTD(transform = rgb_transform):
-    dataset = datasets.dtd.DTD("data", split="train", download=True, transform=transform)
-    return dataset, "DTD", len(dataset.classes)
-#1
-def load_EMNIST(transform = grayscale_transform):
-    dataset = datasets.EMNIST("data", split="byclass", train=True, download=True, transform=transform)
-    return dataset, "EMNIST", len(dataset.classes)
-#1
-def load_EuroSAT(transform = rgb_transform):
-    dataset = datasets.EuroSAT("data", download=True, transform=transform)
-    return dataset, "EuroSAT", len(dataset.classes)
-#2
-def load_FashionMNIST(transform = grayscale_transform):
-    dataset = datasets.FashionMNIST("data", train=False, download=True, transform=transform)
-    return dataset, "FashionMNIST", len(dataset.classes)
-#2
-def load_FER2013(transform = grayscale_transform):
-    dataset = datasets.FER2013("data", transform=transform)
-    return dataset, "FER2013", 7
-#2
-def load_FGVCAircraft(transform = rgb_transform):
-    dataset = datasets.FGVCAircraft("data", download=True, transform=transform, split='train', annotation_level='manufacturer')
-    return dataset, "FGVCAircraft", len(dataset.classes)
-#2
-def load_Flowers102(transform = rgb_transform):
-    dataset = datasets.Flowers102("data", download=True, transform=transform, split='train')
-    return dataset, "Flowers102", 102
-#2
-def load_Food101(transform = rgb_transform):
-    dataset = datasets.Food101("data", download=True, transform=transform, split='train')
-    return dataset, "Food101", 101
-#2
-def load_GTSRB(transform = rgb_transform):
-    dataset = datasets.GTSRB("data", download=True, transform=transform, split='train')
-    return dataset, "GTSRB", 43
-#2 #remove from #2 because it's too large
-def load_INaturalist(transform = rgb_transform):
-    raise Exception("too large")
-    dataset = datasets.INaturalist("data", download=True, transform=transform)
-    return dataset, "INaturalist", len(dataset.all_categories)
-#0
+# xiaoyun T100 0
 def load_KMNIST(transform = grayscale_transform):
     dataset = datasets.KMNIST("data", download=True, transform=transform)
     return dataset, "KMNIST", len(dataset.classes)
 #0
+# xiaoyun p80 0
 def load_LFWPeople(transform = rgb_transform):
     dataset = datasets.LFWPeople("data", download=True, transform=transform)
     return dataset, "LFWPeople", len(dataset.class_to_idx)
@@ -159,9 +99,62 @@ def load_LSUN(transform = rgb_transform):
     dataset = datasets.lsun.LSUN("data", transform=transform)
     return dataset, "LSUN", len(dataset.classes)
 #0
+# xiaoyun T100 0
 def load_Omniglot(transform = grayscale_transform):
     dataset = datasets.Omniglot("data", download=True, transform=transform)
     return dataset, "Omniglot", 964
+
+#0
+# v100 xiaoyun 0
+def load_country211(transform = rgb_transform):
+    dataset = datasets.Country211("data", split="train", download=True, transform=transform)
+    return dataset, "country211", len(dataset.classes)
+#0
+# k80 chi
+# device 0
+def load_DTD(transform = rgb_transform):
+    dataset = datasets.dtd.DTD("data", split="train", download=True, transform=transform)
+    return dataset, "DTD", len(dataset.classes)
+
+#2
+# chi p80 2
+def load_FGVCAircraft(transform = rgb_transform):
+    dataset = datasets.FGVCAircraft("data", download=True, transform=transform, split='train', annotation_level='manufacturer')
+    return dataset, "FGVCAircraft", len(dataset.classes)
+#2
+# chi p80 3
+def load_Flowers102(transform = rgb_transform):
+    dataset = datasets.Flowers102("data", download=True, transform=transform, split='train')
+    return dataset, "Flowers102", 102
+#2
+# xiaoyun T100 1
+def load_Food101(transform = rgb_transform):
+    dataset = datasets.Food101("data", download=True, transform=transform, split='train')
+    return dataset, "Food101", 101
+#2
+# xiaoyun p80 3
+def load_GTSRB(transform = rgb_transform):
+    dataset = datasets.GTSRB("data", download=True, transform=transform, split='train')
+    return dataset, "GTSRB", 43
+
+#2
+# chi P80 1
+def load_FashionMNIST(transform = grayscale_transform):
+    dataset = datasets.FashionMNIST("data", train=False, download=True, transform=transform)
+    return dataset, "FashionMNIST", len(dataset.classes)
+
+
+#2
+def load_FER2013(transform = grayscale_transform):
+    dataset = datasets.FER2013("data", transform=transform)
+    return dataset, "FER2013", 7
+
+#2 #remove from #2 because it's too large
+def load_INaturalist(transform = rgb_transform):
+    raise Exception("too large")
+    dataset = datasets.INaturalist("data", download=True, transform=transform)
+    return dataset, "INaturalist", len(dataset.all_categories)
+
 
 #1
 def load_OxfordIIITPet(transform = rgb_transform):
@@ -179,6 +172,35 @@ def load_PCAM(transform = rgb_transform):
 def load_QMNIST(transform = grayscale_transform):
     dataset = datasets.QMNIST("data", download=True, transform=transform)
     return dataset, "QMNIST", len(dataset.classes)
+
+
+#1
+def load_EMNIST(transform = grayscale_transform):
+    dataset = datasets.EMNIST("data", split="byclass", train=True, download=True, transform=transform)
+    return dataset, "EMNIST", len(dataset.classes)
+#1
+def load_EuroSAT(transform = rgb_transform):
+    dataset = datasets.EuroSAT("data", download=True, transform=transform)
+    return dataset, "EuroSAT", len(dataset.classes)
+
+# 1
+def load_caltech101(transform = grayscale_transform):
+    dataset = datasets.Caltech101("data", download=True, transform=transform)
+    dataset.name = "caltech101"
+    return dataset, "caltech101", len(dataset.categories)
+#1
+def load_caltech256(transform = grayscale_transform):
+    dataset = datasets.Caltech256("data", download=True, transform=transform)
+    return dataset, "caltech256", len(dataset.categories)
+#1
+def load_cifar10(transform = rgb_transform):
+    dataset = datasets.cifar.CIFAR10("data", train=True, download=True, transform=transform)
+    return dataset, "cifar10", len(dataset.class_to_idx)
+#1
+def load_cifar100(transform = rgb_transform):
+    dataset = datasets.cifar.CIFAR100("data", train=True, download=True, transform=transform)
+    return dataset, "cifar100", len(dataset.class_to_idx)
+
 #-
 #3
 def load_RenderedSST2(transform = rgb_transform):
