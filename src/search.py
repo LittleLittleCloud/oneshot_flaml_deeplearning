@@ -78,8 +78,11 @@ def search_config(
     print('run default')
     automl_default = flaml.tune.run(evaluate_config, {}, log_file_name=name, num_samples = 1, verbose=3, mode='max', metric='acc')
     print(automl_default.best_result)
-    print('run tune')
-    automl = flaml.tune.run(evaluate_config, config_search_space, log_file_name=name, num_samples = trail_attempt, verbose=3, mode='max', metric='acc')
+    if trail_attempt > 0:
+        print('run tune')
+        automl = flaml.tune.run(evaluate_config, config_search_space, log_file_name=name, num_samples = trail_attempt, verbose=3, mode='max', metric='acc')
+    else:
+        automl = automl_default
     
     if automl_default.best_result['acc'] > automl.best_result['acc']:
         best_config = automl_default.best_config

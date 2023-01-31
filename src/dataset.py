@@ -204,7 +204,7 @@ def load_USPS(transform = grayscale_transform):
     return dataset, "USPS", 10
 
 
-DATASET_GROUP_0 = [load_DTD, load_country211, load_celebA, load_KMNIST, load_LFWPeople, load_LSUN, load_Omniglot]
+DATASET_GROUP_0 = [load_DTD, load_country211, load_KMNIST, load_LFWPeople, load_LSUN, load_Omniglot]
 
 DATASET_GROUP_1 = [load_caltech101, load_caltech256, load_cifar10, load_cifar100, load_EMNIST, load_EuroSAT, load_OxfordIIITPet, load_Places365, load_PCAM, load_QMNIST]
 

@@ -18,7 +18,7 @@ def meta_features_fn(dataset_name):
 if __name__ == '__main__':
     device = torch.device('cuda:0')
     validate_json_folder = '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/validate/zero_shot'
-    for dataset_loader in DATASET_GROUP_3:
+    for dataset_loader in (DATASET_GROUP_1 + DATASET_GROUP_3).reverse():
         try:
             dataset, name, num_class = dataset_loader()
             if os.path.exists(f'{validate_json_folder}/{name}.json'):
