@@ -7,7 +7,7 @@ import json
 from flaml.default import suggest_config
 
 def meta_features_fn(dataset_name):
-    metaFeaturePath = '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/metafeatures.json';
+    metaFeaturePath = 'default/metafeatures.json';
     with open(metaFeaturePath, 'r') as f:
         obj = json.load(f)
         meta_feature = obj[dataset_name]
@@ -17,19 +17,20 @@ def meta_features_fn(dataset_name):
 
 if __name__ == '__main__':
     device = torch.device('cuda:0')
-    validate_json_folder = '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/validate/zero_shot'
-    for dataset_loader in (DATASET_GROUP_1 + DATASET_GROUP_3).reverse():
+    validate_json_folder = 'validate/zero_shot'
+    for dataset_loader in (DATASET_GROUP_1 + DATASET_GROUP_3):
         try:
             dataset, name, num_class = dataset_loader()
             if os.path.exists(f'{validate_json_folder}/{name}.json'):
                 print(f'{name} has been validated')
                 continue
             meta_featuresfn = meta_features_fn(name)
-            configs = suggest_config('classification', None, None, 'dnn', '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/output', k=1, meta_feature_fn=meta_featuresfn)
+            configs = suggest_config('classification', None, None, 'dnn', 'default/output', k=1, meta_feature_fn=meta_featuresfn)
             print(configs[0])
             score = evaluate_config(dataset, num_class, configs[0], -1, 20, device=device)
             obj = {'acc': score, 'config': configs[0]}
             with open(f'{validate_json_folder}/{name}.json', 'w') as f:
                 json.dump(obj, f)
         except Exception as ex:
-            print(ex)
+            raise
+            # print(ex)
