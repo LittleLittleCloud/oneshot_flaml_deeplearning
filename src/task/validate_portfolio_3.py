@@ -32,5 +32,5 @@ if __name__ == '__main__':
             with open(f'{validate_json_folder}/{name}.json', 'w') as f:
                 json.dump(obj, f)
         except Exception as ex:
-            raise
-            # print(ex)
+            # raise
+            print(ex)
