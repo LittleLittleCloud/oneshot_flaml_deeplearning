@@ -55,7 +55,7 @@ def search_config(
         dataset,
         name,
         num_class,
-        subsample = 500,
+        subsample = SUB_SAMPLE,
         trail_attempt = TRIAL_ATTEMPT,
         epoch = EPOCH,
         seed = SEED,
@@ -68,18 +68,20 @@ def search_config(
 
     print(f'search portfolio for {name} dataset len: {len(dataset)}')
     rnd = torch.random.manual_seed(seed)
-    if subsample != -1:
-        indices = [i for i in range(len(dataset))]
-        indices = [i for i in RandomSampler(indices, num_samples=subsample, generator=rnd)]
-        dataset = Subset(dataset, indices)
     train, validate = random_split(dataset, [0.7, 0.3], rnd)
+    if subsample != -1:
+        indices = [i for i in range(len(train))]
+        indices = [i for i in RandomSampler(indices, num_samples=int(subsample * len(train)), generator=rnd)]
+        train = Subset(train, indices)
     evaluate_config = run_and_evaluate(train, validate, device, epoch, num_class)
     # run default
     print('run default')
-    automl_default = flaml.tune.run(evaluate_config, {}, log_file_name=name, num_samples = 1, verbose=3, mode='max', metric='acc')
+    automl_default = flaml.tune.run(evaluate_config, {}, log_file_name=name, num_samples = 1, verbose=3, mode='max', metric='acc')  
     print(automl_default.best_result)
+    
     if trail_attempt > 0:
         print('run tune')
+        evaluate_config = run_and_evaluate(train, validate, device, epoch, num_class)
         automl = flaml.tune.run(evaluate_config, config_search_space, log_file_name=name, num_samples = trail_attempt, verbose=3, mode='max', metric='acc')
     else:
         automl = automl_default

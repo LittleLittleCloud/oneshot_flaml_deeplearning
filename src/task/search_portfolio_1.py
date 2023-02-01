@@ -6,5 +6,5 @@ from src.task.task_helper import *
 import json
 if __name__ == '__main__':
     device = torch.device('cuda:0')
-    search_portfolio(DATASET_GROUP_1, device)
-    evaluate_portfolio(DATASET_GROUP_1, device)
+    # search_portfolio(DATASET_GROUP_1, device)
+    evaluate_portfolio(DATASET_GROUP_0 + DATASET_GROUP_2, device)
