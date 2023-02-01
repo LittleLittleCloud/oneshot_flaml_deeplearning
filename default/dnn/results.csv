@@ -31,6 +31,7 @@ FashionMNIST,classification,0.7106666666666667,0,{'_modeljson': '/home/azureuser
 FashionMNIST,classification,0.7106666666666667,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/KMNIST.json'}
 FashionMNIST,classification,0.7193333333333334,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/default.json'}
 FashionMNIST,classification,0.693,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Flowers102.json'}
+FashionMNIST,classification,0.7516666666666667,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Food101.json'}
 FGVCAircraft,classification,0.247,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/FashionMNIST.json'}
 FGVCAircraft,classification,0.244,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/country211.json'}
 FGVCAircraft,classification,0.244,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/LFWPeople.json'}
@@ -41,6 +42,7 @@ FGVCAircraft,classification,0.223,0,{'_modeljson': '/home/azureuser/cloudfiles/c
 FGVCAircraft,classification,0.223,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/KMNIST.json'}
 FGVCAircraft,classification,0.254,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/default.json'}
 FGVCAircraft,classification,0.203,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Flowers102.json'}
+FGVCAircraft,classification,0.222,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Food101.json'}
 Flowers102,classification,0.19934640522875818,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/FashionMNIST.json'}
 Flowers102,classification,0.35947712418300654,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/country211.json'}
 Flowers102,classification,0.35947712418300654,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/LFWPeople.json'}
@@ -51,6 +53,7 @@ Flowers102,classification,0.5163398692810458,0,{'_modeljson': '/home/azureuser/c
 Flowers102,classification,0.5163398692810458,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/KMNIST.json'}
 Flowers102,classification,0.13398692810457516,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/default.json'}
 Flowers102,classification,0.5359477124183006,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Flowers102.json'}
+Flowers102,classification,0.08496732026143791,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Food101.json'}
 Food101,classification,0.379009900990099,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/FashionMNIST.json'}
 Food101,classification,0.3585038503850385,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/country211.json'}
 Food101,classification,0.3585038503850385,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/LFWPeople.json'}
@@ -59,6 +62,8 @@ Food101,classification,0.3205720572057206,0,{'_modeljson': '/home/azureuser/clou
 Food101,classification,0.29874587458745877,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/DTD.json'}
 Food101,classification,0.31304730473047304,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Omniglot.json'}
 Food101,classification,0.31304730473047304,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/KMNIST.json'}
+Food101,classification,0.3748294829482948,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Food101.json'}
+Food101,classification,0.29874587458745877,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Flowers102.json'}
 GTSRB,classification,0.43756256256256254,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/DTD.json'}
 GTSRB,classification,0.48460960960960964,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/FashionMNIST.json'}
 GTSRB,classification,0.44406906906906907,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/KMNIST.json'}
@@ -80,6 +85,7 @@ KMNIST,classification,0.7107777777777777,0,{'_modeljson': '/home/azureuser/cloud
 KMNIST,classification,0.7107777777777777,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/KMNIST.json'}
 KMNIST,classification,0.6886111111111111,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/default.json'}
 KMNIST,classification,0.7024444444444444,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Flowers102.json'}
+KMNIST,classification,0.6973888888888888,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Food101.json'}
 LFWPeople,classification,0.07936507936507936,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/FashionMNIST.json'}
 LFWPeople,classification,0.08767951625094482,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/country211.json'}
 LFWPeople,classification,0.08767951625094482,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/LFWPeople.json'}
@@ -90,6 +96,7 @@ LFWPeople,classification,0.07382212144116906,0,{'_modeljson': '/home/azureuser/c
 LFWPeople,classification,0.07382212144116906,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/KMNIST.json'}
 LFWPeople,classification,0.04484756865709247,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/default.json'}
 LFWPeople,classification,0.0707986898463089,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Flowers102.json'}
+LFWPeople,classification,0.046611237087427565,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Food101.json'}
 Omniglot,classification,0.25138312586445366,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/FashionMNIST.json'}
 Omniglot,classification,0.343015214384509,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/country211.json'}
 Omniglot,classification,0.343015214384509,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/LFWPeople.json'}
@@ -100,3 +107,4 @@ Omniglot,classification,0.34232365145228216,0,{'_modeljson': '/home/azureuser/cl
 Omniglot,classification,0.34232365145228216,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/KMNIST.json'}
 Omniglot,classification,0.20504840940525587,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/default.json'}
 Omniglot,classification,0.3414591977869986,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Flowers102.json'}
+Omniglot,classification,0.044605809128630707,0,{'_modeljson': '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flaml_deeplearning/default/result_dnn/Food101.json'}
