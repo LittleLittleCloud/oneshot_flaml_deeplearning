@@ -27,7 +27,7 @@ if __name__ == '__main__':
             meta_featuresfn = meta_features_fn(name)
             configs = suggest_config('classification', None, None, 'dnn', 'default/output', k=1, meta_feature_fn=meta_featuresfn)
             print(configs[0])
-            score = evaluate_config(dataset, num_class, configs[0], -1, 20, device=device)
+            score = evaluate_config(dataset, num_class, configs[0], -1, 5, device=device)
             obj = {'acc': score, 'config': configs[0]}
             with open(f'{validate_json_folder}/{name}.json', 'w') as f:
                 json.dump(obj, f)

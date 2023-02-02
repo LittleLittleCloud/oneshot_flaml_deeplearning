@@ -1,1 +1,0 @@
-{"default_score": {"acc": 0.479960792855587, "time2eval": 18070.723459482193, "training_iteration": 0, "config": {}, "experiment_tag": "exp", "time_total_s": 18070.72862291336}, "flaml_score": {"acc": 0.479960792855587, "time2eval": 18070.723459482193, "training_iteration": 0, "config": {}, "experiment_tag": "exp", "time_total_s": 18070.72862291336}, "flaml_config": {}}
