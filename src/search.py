@@ -13,6 +13,7 @@ import os
 def run_and_evaluate(train, validate, device, num_epochs, num_classes):
     def evaluate_config(config:dict):
         current_time = time.time()
+        print(f'evaluate with config {config}')
         metric = train_and_evaluate_model(train, validate, num_classes=num_classes, num_epochs=num_epochs, device=device, **config)
         time2eval = time.time() - current_time
         tune.report(acc=metric, time2eval=time2eval)
@@ -20,12 +21,13 @@ def run_and_evaluate(train, validate, device, num_epochs, num_classes):
     return evaluate_config
 
 config_search_space = {
-    "batch_size": tune.lograndint(lower = 128, upper = 128 * 5),
+    "batch_size": tune.lograndint(lower = 64, upper = 128 * 3),
     "learning_rate": tune.loguniform(lower = 1e-5, upper = 1),
     "graident": tune.loguniform(lower = 1e-3, upper = 0.9999),
     "square": tune.loguniform(lower = 1e-3, upper = 0.9999),
     "eps": tune.loguniform(lower = 1e-6, upper = 1e-3),
     "weight_decay": tune.loguniform(lower = 1e-9, upper = 1e-2),
+    "arch": tune.choice(['resnet18', 'resnet50','resnet101','inception', 'mobilenet'])
 }
 
 TRIAL_ATTEMPT = 30
@@ -36,9 +38,9 @@ CONFIG_JSON_FOLDER = '/home/azureuser/cloudfiles/code/Users/xiaoyuz/oneshot_flam
 def evaluate_config(dataset,
                 num_class,
                 config,
-                subsample = SUB_SAMPLE,
-                epoch = EPOCH,
-                seed = SEED,
+                subsample,
+                epoch,
+                seed,
                 device = torch.device('cpu')):
     rnd = torch.random.manual_seed(seed)
     if subsample != -1:
@@ -46,6 +48,7 @@ def evaluate_config(dataset,
         indices = [i for i in RandomSampler(indices, num_samples=subsample, generator=rnd)]
         dataset = Subset(dataset, indices)
     train, validate = random_split(dataset, [0.7, 0.3], rnd)
+    print(f'evaluate with config {config}')
     metric = train_and_evaluate_model(train, validate, num_classes=num_class, num_epochs=epoch, device=device, **config)
     
     return metric
@@ -59,12 +62,7 @@ def search_config(
         trail_attempt = TRIAL_ATTEMPT,
         epoch = EPOCH,
         seed = SEED,
-        config_json_folder = CONFIG_JSON_FOLDER,
         device = torch.device('cpu')):
-    config_json_path = f'{config_json_folder}/{name}.json'
-    if os.path.exists(config_json_path):
-        print(f'{config_json_path} already exist')
-        return
 
     print(f'search portfolio for {name} dataset len: {len(dataset)}')
     rnd = torch.random.manual_seed(seed)
@@ -88,8 +86,6 @@ def search_config(
         best_config = automl_default.best_config
     else:
         best_config = automl.best_config
-    with open(config_json_path, 'w') as fs:
-        json.dump(best_config, fs)
     
     return {'default_score': automl_default.best_result, 'flaml_score': automl.best_result, 'flaml_config': automl.best_config}
 
