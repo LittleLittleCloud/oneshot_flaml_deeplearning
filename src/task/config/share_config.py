@@ -38,3 +38,10 @@ SHARE_CONFIG = {
 BLEND_SEARCH_CONFIG = {
     **SHARE_CONFIG
 }
+
+COLLECT_PORTFOLIO_CONFIG = {
+    **SHARE_CONFIG,
+    "SUB_SAMPLE": [0.1, 0.3, 0.5, 0.7, -1],
+    "EPOCH": 30,
+    "M": 50
+}
