@@ -27,6 +27,7 @@ if __name__ == '__main__':
                     sub_sample = -1
                 else:
                     sub_sample = int(len(dataset) * subSample)
+                print(f'subsample: {sub_sample}')
                 res = search_config(dataset,
                                 name,
                                 num_class=num_class,
