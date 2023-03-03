@@ -1,0 +1,3 @@
+FLAML @ git+file:///./autonlp@edf179ec78b9d792a56dfa569e273f2e1ef81c4b
+torch==1.13.1+cu116
+torchvision==0.14.1+cu116

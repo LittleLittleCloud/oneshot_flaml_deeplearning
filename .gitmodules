@@ -1,0 +1,3 @@
+[submodule "autonlp"]
+	path = autonlp
+	url = https://github.com/LittleLittleCloud/autonlp.git

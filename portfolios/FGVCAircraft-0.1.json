@@ -1,1 +1,42 @@
-{"default_score": {"acc": 0.1717171717171717, "time2eval": 71.37454867362976, "training_iteration": 0, "config": {}, "experiment_tag": "exp", "time_total_s": 71.37461233139038}, "flaml_score": {"acc": 0.24242424242424243, "time2eval": 75.74403142929077, "training_iteration": 0, "config": {"batch_size": 275, "learning_rate": 0.0005091791620262619, "graident": 0.0012734023307422499, "square": 0.00954479491255994, "eps": 6.7525030797597335e-06, "weight_decay": 0.0013242155861614088, "arch": "resnet50"}, "config/batch_size": 275, "config/learning_rate": 0.0005091791620262619, "config/graident": 0.0012734023307422499, "config/square": 0.00954479491255994, "config/eps": 6.7525030797597335e-06, "config/weight_decay": 0.0013242155861614088, "config/arch": "resnet50", "experiment_tag": "exp", "time_total_s": 75.74410510063171}, "flaml_config": {"batch_size": 275, "learning_rate": 0.0005091791620262619, "graident": 0.0012734023307422499, "square": 0.00954479491255994, "eps": 6.7525030797597335e-06, "weight_decay": 0.0013242155861614088, "arch": "resnet50"}}
+{
+    "default_score": {
+        "acc": 0.1717171717171717,
+        "time2eval": 71.37454867362976,
+        "training_iteration": 0,
+        "config": {},
+        "experiment_tag": "exp",
+        "time_total_s": 71.37461233139038
+    },
+    "flaml_score": {
+        "acc": 0.24242424242424243,
+        "time2eval": 75.74403142929077,
+        "training_iteration": 0,
+        "config": {
+            "batch_size": 275,
+            "learning_rate": 0.0005091791620262619,
+            "graident": 0.0012734023307422499,
+            "square": 0.00954479491255994,
+            "eps": 6.7525030797597335e-06,
+            "weight_decay": 0.0013242155861614088,
+            "arch": "resnet50"
+        },
+        "config/batch_size": 275,
+        "config/learning_rate": 0.0005091791620262619,
+        "config/graident": 0.0012734023307422499,
+        "config/square": 0.00954479491255994,
+        "config/eps": 6.7525030797597335e-06,
+        "config/weight_decay": 0.0013242155861614088,
+        "config/arch": "resnet50",
+        "experiment_tag": "exp",
+        "time_total_s": 75.74410510063171
+    },
+    "flaml_config": {
+        "batch_size": 275,
+        "learning_rate": 0.0005091791620262619,
+        "graident": 0.0012734023307422499,
+        "square": 0.00954479491255994,
+        "eps": 6.7525030797597335e-06,
+        "weight_decay": 0.0013242155861614088,
+        "arch": "resnet50"
+    }
+}
