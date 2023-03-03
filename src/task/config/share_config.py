@@ -43,5 +43,11 @@ COLLECT_PORTFOLIO_CONFIG = {
     **SHARE_CONFIG,
     "SUB_SAMPLE": [0.1, 0.3, 0.5, 0.7, -1],
     "EPOCH": 30,
-    "M": 50
+    "M": 50,
+    "PORTFOLIO_FOLDER": "portfolios"
+}
+
+COLLECT_METRIC_CONFIG = {
+    **COLLECT_PORTFOLIO_CONFIG,
+    "METRIC_FOLDER": "metrics"
 }

@@ -9,8 +9,8 @@ import os
 
 if __name__ == '__main__':
     device = torch.device('cuda:0')
-    result_folder = './portfolios'
     dataset = COLLECT_PORTFOLIO_CONFIG["Train"]
+    result_folder = COLLECT_PORTFOLIO_CONFIG["PORTFOLIO_FOLDER"]
     dataset.reverse()
     if not os.path.exists(result_folder):
         os.makedirs(result_folder)
