@@ -67,13 +67,13 @@ normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
 
 grayscale_transform = transforms.Compose([
         transforms.Grayscale(num_output_channels=3),
-        transforms.Resize((224,224)),
+        transforms.Resize((299,299)),
         transforms.ToTensor(),
         normalize
     ])
 
 rgb_transform = transforms.Compose([
-        transforms.Resize((224,224)),
+        transforms.Resize((299,299)),
         transforms.ToTensor(),
         normalize
     ])
