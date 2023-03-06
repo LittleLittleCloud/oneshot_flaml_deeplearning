@@ -20,7 +20,7 @@ if __name__ == '__main__':
         portfolio_full_path = os.path.join(portfolio_folder, portfolio_path)
         portfolio = None
         
-        portfolio_name = portfolio_path.split('.')[0]
+        portfolio_name = portfolio_path.split('.json')[0]
         portfolio_metric_full_path = os.path.join(metric_folder, portfolio_path)
         metric = {}
         if os.path.exists(portfolio_metric_full_path):
@@ -43,23 +43,23 @@ if __name__ == '__main__':
                     if dataset_name in metric:
                         print(f'{dataset_name} has been completed')
                         continue
-                if subSample == -1:
-                    sub_sample = -1
-                else:
-                    sub_sample = int(len(dataset) * subSample)
+                    if subSample == -1:
+                        sub_sample = -1
+                    else:
+                        sub_sample = int(len(dataset) * subSample)
                 
-                res = evaluate_config(
-                    dataset= dataset,
-                    num_class= num_class,
-                    config=portfolio,
-                    subsample=sub_sample,
-                    epoch=COLLECT_METRIC_CONFIG["EPOCH"],
-                    seed=COLLECT_METRIC_CONFIG["SEED"],
-                    device=device,
-                    )
-                print(f'evaluate {dataset_name}, score: {res}')
-                metric[dataset_name] = res
-                with open(portfolio_metric_full_path, 'w') as f:
-                    json.dump(metric, f)
+                    res = evaluate_config(
+                        dataset= dataset,
+                        num_class= num_class,
+                        config=portfolio,
+                        subsample=sub_sample,
+                        epoch=COLLECT_METRIC_CONFIG["EPOCH"],
+                        seed=COLLECT_METRIC_CONFIG["SEED"],
+                        device=device,
+                        )
+                    print(f'evaluate {dataset_name}, score: {res}')
+                    metric[dataset_name] = res
+                    with open(portfolio_metric_full_path, 'w') as f:
+                        json.dump(metric, f)
             except Exception as ex:
                 raise(ex)
