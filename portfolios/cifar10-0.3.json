@@ -1,0 +1,42 @@
+{
+    "default_score": {
+        "acc": 0.6128888888888889,
+        "time2eval": 26.93832492828369,
+        "training_iteration": 0,
+        "config": {},
+        "experiment_tag": "exp",
+        "time_total_s": 26.938396215438843
+    },
+    "flaml_score": {
+        "acc": 0.6704444444444444,
+        "time2eval": 211.65422296524048,
+        "training_iteration": 0,
+        "config": {
+            "batch_size": 270,
+            "learning_rate": 0.0013664265885488457,
+            "graident": 0.14484256753982472,
+            "square": 0.1646125743554381,
+            "eps": 9.84927247543864e-06,
+            "weight_decay": 5.242328144334719e-07,
+            "arch": "resnet101"
+        },
+        "config/batch_size": 270,
+        "config/learning_rate": 0.0013664265885488457,
+        "config/graident": 0.14484256753982472,
+        "config/square": 0.1646125743554381,
+        "config/eps": 9.84927247543864e-06,
+        "config/weight_decay": 5.242328144334719e-07,
+        "config/arch": "resnet101",
+        "experiment_tag": "exp",
+        "time_total_s": 211.65430307388306
+    },
+    "flaml_config": {
+        "batch_size": 270,
+        "learning_rate": 0.0013664265885488457,
+        "graident": 0.14484256753982472,
+        "square": 0.1646125743554381,
+        "eps": 9.84927247543864e-06,
+        "weight_decay": 5.242328144334719e-07,
+        "arch": "resnet101"
+    }
+}
