@@ -62,4 +62,4 @@ if __name__ == '__main__':
                     with open(portfolio_metric_full_path, 'w') as f:
                         json.dump(metric, f)
             except Exception as ex:
-                raise(ex)
+                print(ex)
