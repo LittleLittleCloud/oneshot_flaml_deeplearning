@@ -9,14 +9,14 @@ import os
 
 if __name__ == '__main__':
     device = torch.device('cuda:0')
-    dataset = COLLECT_METRIC_CONFIG["Train"]
+    dataset_fn = COLLECT_METRIC_CONFIG["Train"]
     metric_folder = COLLECT_METRIC_CONFIG["METRIC_FOLDER"]
     if not os.path.exists(metric_folder):
         os.makedirs(metric_folder)
     portfolio_folder = COLLECT_METRIC_CONFIG["PORTFOLIO_FOLDER"]
     portfolios = os.listdir(portfolio_folder)
     print(f'portfolios: {portfolios}')
-    for portfolio_path in portfolios:
+    for portfolio_path in filter(lambda x: 'json' in x, portfolios):
         portfolio_full_path = os.path.join(portfolio_folder, portfolio_path)
         portfolio = None
         
@@ -25,6 +25,7 @@ if __name__ == '__main__':
         metric = {}
         if os.path.exists(portfolio_metric_full_path):
             with open(portfolio_metric_full_path, 'r') as f:
+                print(portfolio_metric_full_path)
                 metric = json.load(f)
         
         with open(portfolio_full_path, 'r') as f:
@@ -33,10 +34,11 @@ if __name__ == '__main__':
             if 'flaml_score' in _json:
                 metric[portfolio_name] = _json['flaml_score']['acc']
 
-        print(f'portfolio: {portfolio}') 
+        print(f'portfolio: {portfolio}, porfolio_path {portfolio_full_path}') 
 
-        for dataset_loader in dataset:
+        for dataset_loader in dataset_fn:
             try:
+                print(dataset_loader)
                 dataset, name, num_class = dataset_loader()
                 for subSample in COLLECT_METRIC_CONFIG["SUB_SAMPLE"]:
                     dataset_name = f'{name}-{subSample}'
