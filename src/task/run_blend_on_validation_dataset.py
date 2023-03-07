@@ -32,4 +32,4 @@ if __name__ == '__main__':
             with open(f'{result_folder}/{name}.json', 'w') as f:
                 json.dump(res, f)
         except Exception as ex:
-            raise ex
+            print(ex)
