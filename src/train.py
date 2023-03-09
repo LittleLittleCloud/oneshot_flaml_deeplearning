@@ -30,7 +30,7 @@ def train_and_evaluate_model(
         print('Epoch {}/{}'.format(epoch, num_epochs))
         print('-' * 10)
         model.train()
-        train_data_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+        train_data_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
         running_loss = 0.0
         running_corrects = 0
         batch = 0
@@ -70,7 +70,7 @@ def train_and_evaluate_model(
     labels = []
     # using auc
     model.eval()
-    validate_dataset = DataLoader(validate_dataset, batch_size=batch_size, shuffle=True)
+    validate_dataset = DataLoader(validate_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
     for inputs, label in validate_dataset:
         labels.append(label)
         inputs = inputs.to(device)
