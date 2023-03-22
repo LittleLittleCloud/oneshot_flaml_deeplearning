@@ -8,7 +8,7 @@ SHARE_CONFIG = {
         load_caltech101,
         load_cifar10,
         load_EMNIST,
-        load_EuroSAT,
+        # load_EuroSAT,
         load_FGVCAircraft,
         load_GTSRB,
         load_Places365,

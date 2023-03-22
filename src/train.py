@@ -70,12 +70,13 @@ def train_and_evaluate_model(
     labels = []
     # using auc
     model.eval()
-    validate_dataset = DataLoader(validate_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
+    validate_dataset = DataLoader(validate_dataset, batch_size=batch_size, shuffle=True, drop_last=False)
     for inputs, label in validate_dataset:
         labels.append(label)
         inputs = inputs.to(device)
         output = model.forward(inputs)
         preds.append(output)
+    print(len(preds))
     preds = torch.vstack(preds)
     _, preds = torch.max(preds, 1)
     preds = preds.detach().cpu().numpy()
