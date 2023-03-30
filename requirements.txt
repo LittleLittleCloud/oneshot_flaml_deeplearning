@@ -1,0 +1,6 @@
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.13.1+cu116
+-f https://download.pytorch.org/whl/torch_stable.html
+torchvision==0.14.1+cu116
+h5py==3.8.0
+git+file:///home/xiaoyuz/Desktop/oneshot_flaml_deeplearning/autonlp@edf179ec78b9d792a56dfa569e273f2e1ef81c4b

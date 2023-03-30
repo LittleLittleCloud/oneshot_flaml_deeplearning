@@ -6,6 +6,7 @@ from torch.utils.data import DataLoader, random_split
 import torchvision
 from sklearn.metrics import roc_auc_score, accuracy_score
 import numpy as np
+from statistics import mean
 
 def train_and_evaluate_model(
     train_dataset,
@@ -13,20 +14,23 @@ def train_and_evaluate_model(
     num_classes: int,
     num_epochs: int,
     device: torch.device,
-    batch_size = 128 * 5,
+    arch: str = 'resnet18',
+    batch_size = 64,
     learning_rate = 1e-3,
     graident = 0.9,
     square = 0.99,
     eps = 1e-8,
     weight_decay = 0):
-    model = Model(num_of_class=num_classes, device=device)
+    model = Model(num_of_class=num_classes, device=device, arch=arch)
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, betas=(graident, square), eps=eps, weight_decay=weight_decay)
     cross_entropy = torch.nn.CrossEntropyLoss()
+    early_stop = False
+    last_100_batch_loss = []
     for epoch in range(num_epochs):
-        print('Epoch {}/{}'.format(epoch+1, num_epochs))
+        print('Epoch {}/{}'.format(epoch, num_epochs))
         print('-' * 10)
         model.train()
-        train_data_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+        train_data_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
         running_loss = 0.0
         running_corrects = 0
         batch = 0
@@ -45,23 +49,34 @@ def train_and_evaluate_model(
             correctness = torch.sum(preds == labels.data)
             print(f'batch {batch} loss {loss.item()} correctness {correctness * 1.0 / inputs.size(0)}')
             running_corrects += correctness
+            last_100_batch_loss.append(loss.item())
+            last_100_batch_loss = last_100_batch_loss[-100:]
+            if len(last_100_batch_loss) == 100 and mean(last_100_batch_loss) < mean(last_100_batch_loss[-50:]):
+                early_stop = True
+                break
             batch += 1
+
         epoch_loss = running_loss / len(train_data_loader)
         epoch_correctness = running_corrects * 1.0 / len(train_data_loader)
         print('train - epoch: {} loss: {:.4f} correctness: {}'.format(epoch,
                                                         epoch_loss,
                                                         epoch_correctness))
+        
+        if early_stop is True:
+            print(f'early stop on Epoch: {epoch}')
+            break
 
     preds = []
     labels = []
     # using auc
     model.eval()
-    validate_dataset = DataLoader(validate_dataset, batch_size=batch_size, shuffle=True)
+    validate_dataset = DataLoader(validate_dataset, batch_size=batch_size, shuffle=True, drop_last=False)
     for inputs, label in validate_dataset:
         labels.append(label)
         inputs = inputs.to(device)
         output = model.forward(inputs)
         preds.append(output)
+    print(len(preds))
     preds = torch.vstack(preds)
     _, preds = torch.max(preds, 1)
     preds = preds.detach().cpu().numpy()
